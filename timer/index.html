@@ -36,30 +36,14 @@
         <section class="map-panel">
             <h2 class="panel-title" id="map-title">세계 주요 도시</h2>
             <div class="map" id="timezone-map">
-                <svg class="world-illustration" viewBox="0 0 800 400" aria-hidden="true">
-                    <defs>
-                        <linearGradient id="mapGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#12324a"/>
-                            <stop offset="100%" stop-color="#081e2c"/>
-                        </linearGradient>
-                    </defs>
-                    <rect width="800" height="400" fill="url(#mapGlow)"/>
-                    <path
-                        d="M70 155l75-52 108-12 66 40 32 83-62 32-93-4-88-48z"
-                        fill="#1f4d68"/>
-                    <path
-                        d="M322 166l32-42 82-28 104 14 46 40-12 53-73 28-94-12z"
-                        fill="#1f4d68"/>
-                    <path
-                        d="M640 132l52-20 62 14 36 58-18 64-54 32-66-22-22-68z"
-                        fill="#1f4d68"/>
-                    <path
-                        d="M154 252l44-14 60 20 8 66-36 42-60-20-32-58z"
-                        fill="#1f4d68"/>
-                    <path
-                        d="M526 246l60-42 68 28 12 58-48 54-62-20z"
-                        fill="#1f4d68"/>
-                </svg>
+                <img
+                    class="world-map"
+                    data-map-image
+                    src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAACAUwAOw=="
+                    alt="세계 지도"
+                    loading="lazy"
+                    decoding="async"
+                />
 
                 <button class="city" data-city-key="los-angeles" data-timezone="America/Los_Angeles" style="--x:0.18; --y:0.47;" aria-pressed="false">
                     <span class="city-pulse" aria-hidden="true"></span>
