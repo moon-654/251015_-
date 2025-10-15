@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>현재 시각 타이머</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="app">
+        <header>
+            <h1>현재 시각</h1>
+            <p class="date" id="date">로딩 중...</p>
+        </header>
+        <section class="clock" aria-live="polite">
+            <span id="hours">00</span>
+            <span class="separator">:</span>
+            <span id="minutes">00</span>
+            <span class="separator">:</span>
+            <span id="seconds">00</span>
+        </section>
+        <footer>
+            <button id="toggle-second-hand" type="button">초 숨기기</button>
+        </footer>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

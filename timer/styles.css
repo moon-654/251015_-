@@ -1,0 +1,93 @@
+:root {
+    color-scheme: light dark;
+    --bg: #101820;
+    --fg: #f2f4f5;
+    --accent: #ffb400;
+    font-size: clamp(16px, 2vw, 20px);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at top, rgba(255, 180, 0, 0.2), transparent 60%), var(--bg);
+    color: var(--fg);
+    font-family: "Pretendard", "Helvetica Neue", Arial, sans-serif;
+}
+
+.app {
+    max-width: 420px;
+    width: min(90vw, 420px);
+    padding: 2.5rem 2rem;
+    border-radius: 1.5rem;
+    text-align: center;
+    background: rgba(20, 28, 40, 0.85);
+    box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(16px);
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.75rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+}
+
+.date {
+    margin: 0.5rem 0 2rem;
+    font-size: 1rem;
+    opacity: 0.8;
+    letter-spacing: 0.05rem;
+}
+
+.clock {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: clamp(0.25rem, 1vw, 0.5rem);
+    font-size: clamp(2.5rem, 10vw, 4rem);
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+}
+
+.separator {
+    color: var(--accent);
+    animation: blink 1s steps(1, end) infinite;
+}
+
+.hidden {
+    display: none !important;
+}
+
+button {
+    margin-top: 2.5rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.75rem;
+    border: none;
+    background: var(--accent);
+    color: #222;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.75rem 1.5rem rgba(255, 180, 0, 0.35);
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.2;
+    }
+}
