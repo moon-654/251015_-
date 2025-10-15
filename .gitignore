@@ -1,0 +1,7 @@
+.venv/
+car_picker/.venv/
+car_picker/data/
+car_picker/cache/
+car_picker/data/results.db
+__pycache__/
+*.pyc
