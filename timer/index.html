@@ -3,25 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>현재 시각 타이머</title>
+    <title>세계 타임 키퍼</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <main class="app">
-        <header>
-            <h1>현재 시각</h1>
-            <p class="date" id="date">로딩 중...</p>
+        <header class="top-bar">
+            <div class="heading">
+                <h1 id="title">세계 타임 키퍼</h1>
+                <p id="subtitle">현재 시각을 한눈에</p>
+            </div>
+            <button id="language-toggle" type="button" aria-live="polite">English</button>
         </header>
-        <section class="clock" aria-live="polite">
-            <span id="hours">00</span>
-            <span class="separator">:</span>
-            <span id="minutes">00</span>
-            <span class="separator">:</span>
-            <span id="seconds">00</span>
+
+        <section class="clock-panel" aria-live="polite">
+            <div class="time-display">
+                <div class="time-row time-main">
+                    <span class="time-unit" id="hours">12</span>
+                    <span class="separator">:</span>
+                    <span class="time-unit" id="minutes">00</span>
+                    <span class="separator">:</span>
+                    <span class="time-unit" id="seconds">00</span>
+                    <span class="separator separator--ms">.</span>
+                    <span class="time-unit time-unit--ms" id="milliseconds">000</span>
+                    <span class="meridiem" id="meridiem">AM</span>
+                </div>
+                <p class="date" id="date">로딩 중...</p>
+                <p class="timezone-label" id="timezone-label">서울 (GMT+9)</p>
+            </div>
         </section>
-        <footer>
-            <button id="toggle-second-hand" type="button">초 숨기기</button>
-        </footer>
+
+        <section class="map-panel">
+            <h2 class="panel-title" id="map-title">세계 주요 도시</h2>
+            <div class="map" id="timezone-map">
+                <svg class="world-illustration" viewBox="0 0 800 400" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="mapGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#12324a"/>
+                            <stop offset="100%" stop-color="#081e2c"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="800" height="400" fill="url(#mapGlow)"/>
+                    <path
+                        d="M70 155l75-52 108-12 66 40 32 83-62 32-93-4-88-48z"
+                        fill="#1f4d68"/>
+                    <path
+                        d="M322 166l32-42 82-28 104 14 46 40-12 53-73 28-94-12z"
+                        fill="#1f4d68"/>
+                    <path
+                        d="M640 132l52-20 62 14 36 58-18 64-54 32-66-22-22-68z"
+                        fill="#1f4d68"/>
+                    <path
+                        d="M154 252l44-14 60 20 8 66-36 42-60-20-32-58z"
+                        fill="#1f4d68"/>
+                    <path
+                        d="M526 246l60-42 68 28 12 58-48 54-62-20z"
+                        fill="#1f4d68"/>
+                </svg>
+
+                <button class="city" data-city-key="los-angeles" data-timezone="America/Los_Angeles" style="--x:0.18; --y:0.47;" aria-pressed="false">
+                    <span class="city-pulse" aria-hidden="true"></span>
+                    <span class="city-label">
+                        <span class="city-name">로스앤젤레스</span>
+                        <span class="city-period">밤</span>
+                    </span>
+                </button>
+                <button class="city" data-city-key="new-york" data-timezone="America/New_York" style="--x:0.31; --y:0.4;" aria-pressed="false">
+                    <span class="city-pulse" aria-hidden="true"></span>
+                    <span class="city-label">
+                        <span class="city-name">뉴욕</span>
+                        <span class="city-period">밤</span>
+                    </span>
+                </button>
+                <button class="city" data-city-key="london" data-timezone="Europe/London" style="--x:0.5; --y:0.33;" aria-pressed="false">
+                    <span class="city-pulse" aria-hidden="true"></span>
+                    <span class="city-label">
+                        <span class="city-name">런던</span>
+                        <span class="city-period">밤</span>
+                    </span>
+                </button>
+                <button class="city" data-city-key="dubai" data-timezone="Asia/Dubai" style="--x:0.63; --y:0.47;" aria-pressed="false">
+                    <span class="city-pulse" aria-hidden="true"></span>
+                    <span class="city-label">
+                        <span class="city-name">두바이</span>
+                        <span class="city-period">밤</span>
+                    </span>
+                </button>
+                <button class="city" data-city-key="seoul" data-timezone="Asia/Seoul" style="--x:0.8; --y:0.43;" aria-pressed="true">
+                    <span class="city-pulse" aria-hidden="true"></span>
+                    <span class="city-label">
+                        <span class="city-name">서울</span>
+                        <span class="city-period">밤</span>
+                    </span>
+                </button>
+                <button class="city" data-city-key="tokyo" data-timezone="Asia/Tokyo" style="--x:0.85; --y:0.4;" aria-pressed="false">
+                    <span class="city-pulse" aria-hidden="true"></span>
+                    <span class="city-label">
+                        <span class="city-name">도쿄</span>
+                        <span class="city-period">밤</span>
+                    </span>
+                </button>
+                <button class="city" data-city-key="sydney" data-timezone="Australia/Sydney" style="--x:0.9; --y:0.72;" aria-pressed="false">
+                    <span class="city-pulse" aria-hidden="true"></span>
+                    <span class="city-label">
+                        <span class="city-name">시드니</span>
+                        <span class="city-period">밤</span>
+                    </span>
+                </button>
+                <button class="city" data-city-key="sao-paulo" data-timezone="America/Sao_Paulo" style="--x:0.34; --y:0.72;" aria-pressed="false">
+                    <span class="city-pulse" aria-hidden="true"></span>
+                    <span class="city-label">
+                        <span class="city-name">상파울루</span>
+                        <span class="city-period">밤</span>
+                    </span>
+                </button>
+            </div>
+            <p class="map-hint" id="map-hint">도시를 클릭하면 해당 시간대를 볼 수 있습니다.</p>
+        </section>
     </main>
     <script src="script.js"></script>
 </body>
